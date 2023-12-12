@@ -1,0 +1,20 @@
+.activities img {
+  height: 70px;
+  background-color: azure;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.activities img:hover {
+  transform: scale(1.1);
+}
+
+.activeStatus {
+  scale: 1.2;
+  margin-bottom: 10px;
+  background-color: rgb(206, 253, 134) !important;
+}
+
+img {
+  cursor: pointer;
+}
