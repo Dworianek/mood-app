@@ -27,10 +27,65 @@ export default function App() {
 
   const [tableMood, setTableMood] = useState([
     {
-      date: "2023-12-11 12:50",
-      name: "Wspaniale",
-      activities: "Pobudka",
-      notes: "Super poranek, dostałam list miłosny.",
+      name: "wspaniale",
+      activities: "Pobudka, Prysznic",
+      notes: "Super dzień, pobudzający prysznic po pobudce dużo mi dał",
+    },
+    {
+      name: "dobrze",
+      activities: "Śniadanie, Sprzątanie, Spacer",
+      notes: "Dobrze się czuję po śniadaniu, sprzątaniu i spacerze",
+    },
+    {
+      name: "średnio",
+      activities: "Obiad",
+      notes: "Średni dzień, ale obiad był smaczny",
+    },
+    {
+      name: "źle",
+      activities: "Pobudka, Spacer",
+      notes: "Mam zły dzień, pomógł trochę poranny spacer",
+    },
+    {
+      name: "tragicznie",
+      activities: "Śniadanie, Prysznic, Sprzątanie",
+      notes:
+        "Tragiczny dzień, chociaż śniadanie, prysznic i sprzątanie były ok",
+    },
+    {
+      name: "wspaniale",
+      activities: "Pobudka, Obiad, Spacer",
+      notes: "Super dzień, zwłaszcza po porannej pobudce, obiedzie i spacerze",
+    },
+    {
+      name: "dobrze",
+      activities: "Prysznic, Obiad",
+      notes: "Dobry dzień, zwłaszcza po prysznicu i obiedzie",
+    },
+    {
+      name: "średnio",
+      activities: "Sprzątanie",
+      notes: "Dzień średni, ale przynajmniej sprzątanie zrobione",
+    },
+    {
+      name: "źle",
+      activities: "Pobudka, Śniadanie",
+      notes: "Zły dzień, ale śniadanie i poranna pobudka pomogły trochę",
+    },
+    {
+      name: "tragicznie",
+      activities: "Obiad, Spacer",
+      notes: "Tragiczny dzień, ale obiad i spacer poprawiły nieco nastrój",
+    },
+    {
+      name: "wspaniale",
+      activities: "Prysznic, Spacer",
+      notes: "Wspaniały dzień po prysznicu i spacerze",
+    },
+    {
+      name: "dobrze",
+      activities: "Śniadanie, Sprzątanie, Obiad",
+      notes: "Dobrze się czuję po śniadaniu, sprzątaniu i obiedzie",
     },
   ]);
 
@@ -68,13 +123,18 @@ export default function App() {
     </>
   ));
 
-  const handleClickMoodAdd = (name, activities, notes) => {
+  const handleClickMoodAdd = (name, notes) => {
+    const filteredActivities = activities
+      .filter((activity) => activity.status === true)
+      .map((activity) => activity.name);
+
+    const joinegString = filteredActivities.join(", ");
+
     setTableMood([
       ...tableMood,
-      { name: name, activities: activities, notes: notes },
+      { name: name, activities: joinegString, notes: notes },
     ]);
   };
-
   const setTempMoodName = (name) => {
     setTempMood(name);
   };

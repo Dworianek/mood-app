@@ -58,11 +58,7 @@ export default function Interview(props) {
       <Row>
         <button
           onClick={() =>
-            props.handleClickMoodAdd(
-              props.tempMood,
-              "Bieganie",
-              props.noteValue
-            )
+            props.handleClickMoodAdd(props.tempMood, props.noteValue)
           }
         >
           Dodaj raport
