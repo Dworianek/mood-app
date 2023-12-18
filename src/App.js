@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Interview from "./components/interview";
 import Calendar from "./components/calendar";
 
-import emotion from "./components/emotions";
+import emotion from "./components/emotionsObject";
 
 import wakeup from "./images/activities/alarm.png";
 import breakfast from "./images/activities/breakfast.png";
@@ -118,7 +118,12 @@ export default function App() {
   ]);
 
   const showTable = tableMood.map((mood, index) => (
-    <Calendar key={index} moode={mood} defaultDateTime={defaultDateTime} />
+    <Calendar
+      key={index}
+      moode={mood}
+      defaultDateTime={defaultDateTime}
+      activities={activities}
+    />
   ));
 
   const handleClickMoodAdd = (name, notes) => {
