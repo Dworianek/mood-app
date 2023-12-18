@@ -8,6 +8,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import Interview from "./components/interview";
 import Calendar from "./components/calendar";
 
+import MoodAddInfo from "./components/moodAddInfo";
+
 import emotion from "./components/emotionsObject";
 
 import wakeup from "./images/activities/alarm.png";
@@ -151,6 +153,10 @@ export default function App() {
     setNoteValue(e.target.value);
   };
 
+  const handleChangeDate = (e) => {
+    setDefaultDateTime(e.target.value);
+  };
+
   const hangleChangeActivityStatus = (clickActivities) => {
     const updateActivities = activities.map((activity) => {
       if (activity.id === clickActivities.id)
@@ -162,30 +168,42 @@ export default function App() {
     setActivities(updateActivities);
   };
 
+  const checkTodayEmotion = tableMood.find(
+    (mood) =>
+      new Date(mood.date).getDate() === new Date(defaultDateTime).getDate()
+  );
+
   return (
     <>
       <Container className="d-flex flex-column justify-content-center align-items-center mt-5">
         <Row style={{ width: "700px" }}>
-          <Interview
-            currentDate={defaultDateTime}
-            emotion={emotion}
-            activities={activities}
-            tempMood={tempMood}
-            noteValue={noteValue}
-            setTempMoodName={setTempMoodName}
-            hanldeInputChange={hanldeInputChange}
-            handleClickMoodAdd={handleClickMoodAdd}
-            hangleChangeActivityStatus={hangleChangeActivityStatus}
-          />
+          {checkTodayEmotion ? (
+            <MoodAddInfo />
+          ) : (
+            <Interview
+              currentDate={defaultDateTime}
+              emotion={emotion}
+              activities={activities}
+              tempMood={tempMood}
+              noteValue={noteValue}
+              setTempMoodName={setTempMoodName}
+              hanldeInputChange={hanldeInputChange}
+              handleClickMoodAdd={handleClickMoodAdd}
+              hangleChangeActivityStatus={hangleChangeActivityStatus}
+              handleChangeDate={handleChangeDate}
+            />
+          )}
         </Row>
-        <Row className="my-5">Grudzień 2023</Row>
+        <Row className="mt-5 mb-1">
+          <h3>Grudzień 2023</h3>
+        </Row>
         <Row style={{ width: "700px" }}></Row>
         <Row>
           <Table striped hover>
             <thead>
               <tr>
                 <th>Dzień</th>
-                <th>Dokładna data</th>
+                <th>Data/Godzina</th>
                 <th>Humor</th>
                 <th>Aktywności</th>
                 <th>Notatka</th>

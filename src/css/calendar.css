@@ -1,0 +1,11 @@
+.activitiesClass img {
+  height: 40px;
+  background-color: rgb(211, 250, 250);
+  border-radius: 50%;
+  padding: 4px;
+  margin-left: 5px;
+}
+
+.emojiClass img {
+  height: 30px;
+}

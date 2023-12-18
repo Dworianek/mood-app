@@ -2,6 +2,8 @@ import React from "react";
 
 import emotion from "./emotionsObject";
 
+import "../css/calendar.css";
+
 export default function Calendar(props) {
   //Take emojiIcon
   const emojiIcon = emotion.find(
@@ -20,16 +22,20 @@ export default function Calendar(props) {
     return props.activities.find((activity) => activity.name === activityName);
   });
 
+  const showAllIcon = activitiesIcons.map((activity) => (
+    <img src={activity.icon} alt="" />
+  ));
+
   console.log(activitiesIcons);
 
   return (
     <tr>
       <td>{`${formattedDay}.`}</td>
       <td>{formattedDate}</td>
-      <td>
-        <img src={emojiIcon.icon} alt="" height={"25px"} />
+      <td className="emojiClass text-center">
+        <img src={emojiIcon.icon} alt="" />
       </td>
-      <td>{activitiesIcons.name}</td>
+      <td className="activitiesClass text-center">{showAllIcon}</td>
       <td>{props.moode.notes}</td>
     </tr>
   );

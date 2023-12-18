@@ -29,14 +29,21 @@ export default function Interview(props) {
   ));
 
   return (
-    <div>
+    <div className="interviewClass">
       <Row>
         <h2>Cześć, jak sie dziś masz?</h2>
       </Row>
-      <Row className="my-2">
-        <input type="datetime-local" value={props.currentDate} name="" id="" />
+      <Row className="d-flex justify-content-center my-3">
+        <input
+          className="dateInput"
+          onChange={props.handleChangeDate}
+          type="datetime-local"
+          value={props.currentDate}
+          name=""
+          id=""
+        />
       </Row>
-      <Row className="d-flex justify-content-center align-items-center my-3">
+      <Row className="d-flex justify-content-center align-items-center mt-4">
         {emotionType}
       </Row>
       <Row className="mt-3">
@@ -55,8 +62,9 @@ export default function Interview(props) {
           placeholder="Dodaj notatkę z całego dnia..."
         />
       </Row>
-      <Row>
+      <Row className="d-flex justify-content-center">
         <button
+          className="addMoodBtn"
           onClick={() =>
             props.handleClickMoodAdd(props.tempMood, props.noteValue)
           }
