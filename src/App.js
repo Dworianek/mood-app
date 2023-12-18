@@ -8,11 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Interview from "./components/interview";
 import Calendar from "./components/calendar";
 
-import excelentIcon from "./images/1.png";
-import goodIcon from "./images/2.png";
-import averageIcon from "./images/3.png";
-import badIcon from "./images/4.png";
-import terribleIcon from "./images/5.png";
+import emotion from "./components/emotions";
 
 import wakeup from "./images/activities/alarm.png";
 import breakfast from "./images/activities/breakfast.png";
@@ -27,62 +23,74 @@ export default function App() {
 
   const [tableMood, setTableMood] = useState([
     {
+      date: "2023-12-01T05:53",
       name: "wspaniale",
       activities: "Pobudka, Prysznic",
       notes: "Super dzień, pobudzający prysznic po pobudce dużo mi dał",
     },
     {
+      date: "2023-12-02T05:53",
       name: "dobrze",
       activities: "Śniadanie, Sprzątanie, Spacer",
       notes: "Dobrze się czuję po śniadaniu, sprzątaniu i spacerze",
     },
     {
+      date: "2023-12-03T05:53",
       name: "średnio",
       activities: "Obiad",
       notes: "Średni dzień, ale obiad był smaczny",
     },
     {
+      date: "2023-12-04T05:53",
       name: "źle",
       activities: "Pobudka, Spacer",
       notes: "Mam zły dzień, pomógł trochę poranny spacer",
     },
     {
+      date: "2023-12-05T05:53",
       name: "tragicznie",
       activities: "Śniadanie, Prysznic, Sprzątanie",
       notes:
         "Tragiczny dzień, chociaż śniadanie, prysznic i sprzątanie były ok",
     },
     {
+      date: "2023-12-06T05:53",
       name: "wspaniale",
       activities: "Pobudka, Obiad, Spacer",
       notes: "Super dzień, zwłaszcza po porannej pobudce, obiedzie i spacerze",
     },
     {
+      date: "2023-12-07T06:53",
       name: "dobrze",
       activities: "Prysznic, Obiad",
       notes: "Dobry dzień, zwłaszcza po prysznicu i obiedzie",
     },
     {
+      date: "2023-12-08T05:53",
       name: "średnio",
       activities: "Sprzątanie",
       notes: "Dzień średni, ale przynajmniej sprzątanie zrobione",
     },
     {
+      date: "2023-12-09T05:53",
       name: "źle",
       activities: "Pobudka, Śniadanie",
       notes: "Zły dzień, ale śniadanie i poranna pobudka pomogły trochę",
     },
     {
+      date: "2023-12-10T05:53",
       name: "tragicznie",
       activities: "Obiad, Spacer",
       notes: "Tragiczny dzień, ale obiad i spacer poprawiły nieco nastrój",
     },
     {
+      date: "2023-12-11T05:53",
       name: "wspaniale",
       activities: "Prysznic, Spacer",
       notes: "Wspaniały dzień po prysznicu i spacerze",
     },
     {
+      date: "2023-12-12T05:53",
       name: "dobrze",
       activities: "Śniadanie, Sprzątanie, Obiad",
       notes: "Dobrze się czuję po śniadaniu, sprzątaniu i obiedzie",
@@ -99,14 +107,6 @@ export default function App() {
     setDefaultDateTime(formattedDate);
   }, []);
 
-  //Emotion
-  const emotion = [
-    { id: 1, name: "Wspaniale", icon: excelentIcon },
-    { id: 2, name: "Dobrze", icon: goodIcon },
-    { id: 3, name: "Średnio", icon: averageIcon },
-    { id: 4, name: "Źle", icon: badIcon },
-    { id: 5, name: "Tragicznie", icon: terribleIcon },
-  ];
   //Activities
   const [activities, setActivities] = useState([
     { id: 1, name: "Pobudka", icon: wakeup, status: false },
@@ -117,10 +117,8 @@ export default function App() {
     { id: 6, name: "Spacer", icon: walk, status: false },
   ]);
 
-  const showTable = tableMood.map((moode) => (
-    <>
-      <Calendar {...moode} defaultDateTime={defaultDateTime} />
-    </>
+  const showTable = tableMood.map((mood, index) => (
+    <Calendar key={index} moode={mood} defaultDateTime={defaultDateTime} />
   ));
 
   const handleClickMoodAdd = (name, notes) => {
@@ -132,7 +130,12 @@ export default function App() {
 
     setTableMood([
       ...tableMood,
-      { name: name, activities: joinegString, notes: notes },
+      {
+        date: defaultDateTime,
+        name: name,
+        activities: joinegString,
+        notes: notes,
+      },
     ]);
   };
   const setTempMoodName = (name) => {
@@ -171,9 +174,7 @@ export default function App() {
           />
         </Row>
         <Row className="my-5">Grudzień 2023</Row>
-        <Row style={{ width: "700px" }}>
-          <Calendar />
-        </Row>
+        <Row style={{ width: "700px" }}></Row>
         <Row>
           <Table striped hover>
             <thead>

@@ -1,13 +1,24 @@
 import React from "react";
 
+import emotion from "../components/emotions";
+
 export default function Calendar(props) {
+  const icon = emotion.find(
+    (emotionIcon) => emotionIcon.name === props.moode.name
+  );
+
+  const formattedDate = new Date(props.moode.date).toLocaleString();
+  const formattedDay = new Date(props.moode.date).getDate();
+
   return (
     <tr>
-      <td>{props.defaultDateTime && props.defaultDateTime.slice(8, 10)}</td>
-      <td>{props.defaultDateTime}</td>
-      <td>{props.name}</td>
-      <td>{props.activities}</td>
-      <td>{props.notes}</td>
+      <td>{`${formattedDay}.`}</td>
+      <td>{formattedDate}</td>
+      <td>
+        <img src={icon.icon} alt="" height={"25px"} />
+      </td>
+      <td>{props.moode.activities}</td>
+      <td>{props.moode.notes}</td>
     </tr>
   );
 }
