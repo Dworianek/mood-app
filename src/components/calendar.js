@@ -25,9 +25,6 @@ export default function Calendar(props) {
   const showAllIcon = activitiesIcons.map((activity) => (
     <img src={activity.icon} alt="" />
   ));
-
-  console.log(activitiesIcons);
-
   return (
     <tr>
       <td>{`${formattedDay}.`}</td>

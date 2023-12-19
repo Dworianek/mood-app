@@ -10,6 +10,10 @@ import Calendar from "./components/calendar";
 
 import MoodAddInfo from "./components/moodAddInfo";
 
+import MoodChart from "./components/moodChart";
+
+import Footer from "./components/footer";
+
 import emotion from "./components/emotionsObject";
 
 import wakeup from "./images/activities/alarm.png";
@@ -27,29 +31,34 @@ export default function App() {
     {
       date: "2023-12-01T05:53",
       name: "wspaniale",
+      moodValue: 5,
       activities: "Pobudka, Prysznic",
       notes: "Super dzień, pobudzający prysznic po pobudce dużo mi dał",
     },
     {
       date: "2023-12-02T05:53",
-      name: "dobrze",
+      name: "wspaniale",
+      moodValue: 5,
       activities: "Śniadanie, Sprzątanie, Spacer",
       notes: "Dobrze się czuję po śniadaniu, sprzątaniu i spacerze",
     },
     {
       date: "2023-12-03T05:53",
-      name: "średnio",
+      name: "tragicznie",
+      moodValue: 1,
       activities: "Obiad",
       notes: "Średni dzień, ale obiad był smaczny",
     },
     {
       date: "2023-12-04T05:53",
+      moodValue: 2,
       name: "źle",
       activities: "Pobudka, Spacer",
       notes: "Mam zły dzień, pomógł trochę poranny spacer",
     },
     {
       date: "2023-12-05T05:53",
+      moodValue: 1,
       name: "tragicznie",
       activities: "Śniadanie, Prysznic, Sprzątanie",
       notes:
@@ -58,41 +67,48 @@ export default function App() {
     {
       date: "2023-12-06T05:53",
       name: "wspaniale",
+      moodValue: 5,
       activities: "Pobudka, Obiad, Spacer",
       notes: "Super dzień, zwłaszcza po porannej pobudce, obiedzie i spacerze",
     },
     {
       date: "2023-12-07T06:53",
-      name: "dobrze",
+      name: "tragicznie",
+      moodValue: 1,
       activities: "Prysznic, Obiad",
       notes: "Dobry dzień, zwłaszcza po prysznicu i obiedzie",
     },
     {
       date: "2023-12-08T05:53",
-      name: "średnio",
+      name: "wspaniale",
+      moodValue: 5,
       activities: "Sprzątanie",
       notes: "Dzień średni, ale przynajmniej sprzątanie zrobione",
     },
     {
       date: "2023-12-09T05:53",
       name: "źle",
+      moodValue: 2,
       activities: "Pobudka, Śniadanie",
       notes: "Zły dzień, ale śniadanie i poranna pobudka pomogły trochę",
     },
     {
       date: "2023-12-10T05:53",
       name: "tragicznie",
+      moodValue: 1,
       activities: "Obiad, Spacer",
       notes: "Tragiczny dzień, ale obiad i spacer poprawiły nieco nastrój",
     },
     {
       date: "2023-12-11T05:53",
       name: "wspaniale",
+      moodValue: 5,
       activities: "Prysznic, Spacer",
       notes: "Wspaniały dzień po prysznicu i spacerze",
     },
     {
       date: "2023-12-12T05:53",
+      moodValue: 4,
       name: "dobrze",
       activities: "Śniadanie, Sprzątanie, Obiad",
       notes: "Dobrze się czuję po śniadaniu, sprzątaniu i obiedzie",
@@ -153,7 +169,6 @@ export default function App() {
     const joinegString = filteredActivities.join(", ");
 
     if (
-      validationValue.button &&
       validationValue.mood &&
       validationValue.activities &&
       validationValue.note
@@ -163,6 +178,7 @@ export default function App() {
         {
           date: defaultDateTime,
           name: name,
+          moodValue: emotion.find((emoticon) => emoticon.name === name)?.id,
           activities: joinegString,
           notes: notes,
         },
@@ -265,7 +281,20 @@ export default function App() {
             <tbody>{showTable}</tbody>
           </Table>
         </Row>
+        <Row>
+          <Row>
+            <h3 className="mt-5 text-center">
+              Wykres samopoczucia Grudzień 2023
+            </h3>
+          </Row>
+          <Row>
+            {" "}
+            <MoodChart tableMood={tableMood} />
+          </Row>
+        </Row>
       </Container>
+
+      <Footer />
     </>
   );
 }

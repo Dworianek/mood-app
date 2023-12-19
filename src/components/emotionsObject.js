@@ -6,11 +6,11 @@ import terribleIcon from "../images/5.png";
 
 // Emotion
 const emotion = [
-  { id: 1, name: "wspaniale", icon: excelentIcon },
-  { id: 2, name: "dobrze", icon: goodIcon },
+  { id: 5, name: "wspaniale", icon: excelentIcon },
+  { id: 4, name: "dobrze", icon: goodIcon },
   { id: 3, name: "średnio", icon: averageIcon },
-  { id: 4, name: "źle", icon: badIcon },
-  { id: 5, name: "tragicznie", icon: terribleIcon },
+  { id: 2, name: "źle", icon: badIcon },
+  { id: 1, name: "tragicznie", icon: terribleIcon },
 ];
 
 export default emotion;
