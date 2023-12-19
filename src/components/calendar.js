@@ -36,7 +36,9 @@ export default function Calendar(props) {
         <img src={emojiIcon.icon} alt="" />
       </td>
       <td className="activitiesClass text-center">{showAllIcon}</td>
-      <td>{props.moode.notes}</td>
+      <td style={{ maxWidth: "600px", wordWrap: "break-word" }}>
+        {props.moode.notes}
+      </td>
     </tr>
   );
 }

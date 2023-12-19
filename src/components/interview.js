@@ -43,24 +43,52 @@ export default function Interview(props) {
           id=""
         />
       </Row>
-      <Row className="d-flex justify-content-center align-items-center mt-4">
-        {emotionType}
+      <Row>
+        <Row className="d-flex justify-content-center align-items-center mt-4">
+          {emotionType}
+        </Row>
+        <Row>
+          {props.validationValue.button &&
+          props.validationValue.mood === false ? (
+            <span>{props.message.messageMood}</span>
+          ) : null}
+        </Row>
       </Row>
       <Row className="mt-3">
         <h4>A co dziś robiłeś?</h4>
       </Row>
-      <Row className="d-flex justify-content-center align-items-center my-3">
-        {activitiesType}
+      <Row>
+        <Row className="d-flex justify-content-center align-items-center mt-3">
+          {activitiesType}
+        </Row>
+        <Row>
+          {" "}
+          {props.validationValue.button &&
+          props.validationValue.activities === false ? (
+            <span>{props.message.messageActivities}</span>
+          ) : null}
+        </Row>
       </Row>
-      <Row className="d-flex justify-content-center align-items-center my-3">
-        <input
-          onChange={props.hanldeInputChange}
-          className="noteInput"
-          type="textarea"
-          name=""
-          value={props.noteValue}
-          placeholder="Dodaj notatkę z całego dnia..."
-        />
+      <Row>
+        <Row className="d-flex justify-content-center align-items-center mt-3">
+          {" "}
+          <input
+            onChange={props.hanldeInputChange}
+            className="noteInput"
+            type="textarea"
+            name=""
+            value={props.noteValue}
+            placeholder="Dodaj notatkę z całego dnia..."
+          />
+        </Row>
+
+        <Row className="my-2">
+          {" "}
+          {props.validationValue.button &&
+          props.validationValue.note === false ? (
+            <span>{props.message.messageNote}</span>
+          ) : null}
+        </Row>
       </Row>
       <Row className="d-flex justify-content-center">
         <button
@@ -69,7 +97,7 @@ export default function Interview(props) {
             props.handleClickMoodAdd(props.tempMood, props.noteValue)
           }
         >
-          Dodaj raport
+          RAPORT SAMOPOCZUCIA
         </button>
       </Row>
     </div>

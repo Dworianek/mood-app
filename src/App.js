@@ -102,6 +102,19 @@ export default function App() {
   const [noteValue, setNoteValue] = useState("");
   const [tempMood, setTempMood] = useState("");
 
+  const [validationValue, setValidationValue] = useState({
+    button: false,
+    mood: false,
+    activities: false,
+    note: false,
+  });
+
+  const message = {
+    messageMood: "Musiz wybrać chociaż jedną emocję...",
+    messageActivities: "Musisz wybrać minimum 1 aktywności...",
+    messageNote: "Twoja notata musi mieć minimum 20 znaków...",
+  };
+
   useEffect(() => {
     const currentDateTime = new Date();
     const formattedDate = currentDateTime.toISOString().slice(0, 16);
@@ -129,28 +142,60 @@ export default function App() {
   ));
 
   const handleClickMoodAdd = (name, notes) => {
+    // Walidacja aktywności
+
+    setValidationValue({ ...validationValue, button: true });
+
     const filteredActivities = activities
       .filter((activity) => activity.status === true)
       .map((activity) => activity.name);
 
     const joinegString = filteredActivities.join(", ");
 
-    setTableMood([
-      ...tableMood,
-      {
-        date: defaultDateTime,
-        name: name,
-        activities: joinegString,
-        notes: notes,
-      },
-    ]);
+    if (
+      validationValue.button &&
+      validationValue.mood &&
+      validationValue.activities &&
+      validationValue.note
+    ) {
+      setTableMood([
+        ...tableMood,
+        {
+          date: defaultDateTime,
+          name: name,
+          activities: joinegString,
+          notes: notes,
+        },
+      ]);
+
+      //Czyszczenie formularza
+      alert("Sukces, udało się dodać nowy formularz.");
+      setNoteValue("");
+      setTempMood("");
+
+      const tempActivities = activities.map((activity) => {
+        return { ...activity, status: false };
+      });
+      setActivities(tempActivities);
+    } else alert("Nie udało się wysłać formularza. Popraw błędy.");
   };
   const setTempMoodName = (name) => {
     setTempMood(name);
+    const isNameValid = name.length > 0;
+    setValidationValue({
+      ...validationValue,
+      mood: isNameValid,
+    });
   };
 
   const hanldeInputChange = (e) => {
     setNoteValue(e.target.value);
+    const isNoteValid = e.target.value.length >= 20;
+
+    setValidationValue({
+      ...validationValue,
+      note: isNoteValid,
+    });
   };
 
   const handleChangeDate = (e) => {
@@ -166,6 +211,12 @@ export default function App() {
       }
     });
     setActivities(updateActivities);
+
+    const isActivityValid = updateActivities.some(
+      (activity) => activity.status === true
+    );
+
+    setValidationValue({ ...validationValue, activities: isActivityValid });
   };
 
   const checkTodayEmotion = tableMood.find(
@@ -191,6 +242,8 @@ export default function App() {
               handleClickMoodAdd={handleClickMoodAdd}
               hangleChangeActivityStatus={hangleChangeActivityStatus}
               handleChangeDate={handleChangeDate}
+              validationValue={validationValue}
+              message={message}
             />
           )}
         </Row>
