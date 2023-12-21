@@ -22,6 +22,18 @@ import shower from "./images/activities/shower.png";
 import cleanup from "./images/activities/cleanup.png";
 import dinner from "./images/activities/dinner.png";
 import walk from "./images/activities/walk.png";
+import study from "./images/activities/study.png";
+import dance from "./images/activities/dance.png";
+import listen from "./images/activities/listen.png";
+import read from "./images/activities/read.png";
+import sleep from "./images/activities/sleep.png";
+import wash from "./images/activities/wash.png";
+import shopping from "./images/activities/shopping.png";
+import sport from "./images/activities/sports.png";
+import party from "./images/activities/party.png";
+import ironing from "./images/activities/ironing.png";
+import tv from "./images/activities/tv.png";
+import gaming from "./images/activities/gaming.png";
 
 export default function App() {
   //Input time + Effect to take current date/time
@@ -145,7 +157,19 @@ export default function App() {
     { id: 3, name: "Prysznic", icon: shower, status: false },
     { id: 4, name: "Sprzątanie", icon: cleanup, status: false },
     { id: 5, name: "Obiad", icon: dinner, status: false },
-    { id: 6, name: "Spacer", icon: walk, status: false },
+    { id: 6, name: "Nauka", icon: study, status: false },
+    { id: 7, name: "Taniec", icon: dance, status: false },
+    { id: 8, name: "Muzyka", icon: listen, status: false },
+    { id: 9, name: "Czytanie", icon: read, status: false },
+    { id: 10, name: "Spacer", icon: walk, status: false },
+    { id: 11, name: "Spanie", icon: sleep, status: false },
+    { id: 12, name: "Zakupy", icon: shopping, status: false },
+    { id: 13, name: "Sport", icon: sport, status: false },
+    { id: 14, name: "Impreza", icon: party, status: false },
+    { id: 15, name: "Prasowanie", icon: ironing, status: false },
+    { id: 16, name: "TV", icon: tv, status: false },
+    { id: 17, name: "Granie", icon: gaming, status: false },
+    { id: 18, name: "Naczynia", icon: wash, status: false },
   ]);
 
   const showTable = tableMood.map((mood, index) => (
