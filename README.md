@@ -1,5 +1,8 @@
 # Mood-App
 
+## Link do projektu
+https://dworianek.github.io/mood-app/
+
 ## Opis
 
 Repozytorium Mood-App zawiera aplikację do zbierania informacji na temat samopoczucia użytkownika w danym dniu. Aplikacja składa się z formularza, tabeli, wykresu oraz tabeli podsumowania emocji, a całość została stworzona w oparciu o technologie React, Bootstrap i Recharts.
