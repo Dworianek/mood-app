@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Mood-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Opis
 
-## Available Scripts
+Repozytorium Mood-App zawiera aplikację do zbierania informacji na temat samopoczucia użytkownika w danym dniu. Aplikacja składa się z formularza, tabeli, wykresu oraz tabeli podsumowania emocji, a całość została stworzona w oparciu o technologie React, Bootstrap i Recharts.
 
-In the project directory, you can run:
+![image](https://github.com/Dworianek/mood-app/assets/45004601/cc7c4515-d40e-4429-a694-7825ed74209d)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funkcje
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Formularz Zbierania Danych:**
+   - Użytkownik wybiera datę, dla której chce udokumentować swoje samopoczucie.
+   - Wybór samopoczucia za pomocą emotek.
+   - Wybór aktywności z danego dnia.
+   - Dodawanie krótkiej notatki.
+   - Zabezpieczenie formularza walidacją pisaną osobiście.
 
-### `npm test`
+2. **Tabela Zbierania Danych:**
+   - Przechowuje informacje o samopoczuciu użytkownika z każdego dnia.
+   - Użytkownik może dodać informacje o swoim samopoczuciu tylko raz dziennie.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://github.com/Dworianek/mood-app/assets/45004601/2695b672-258e-4e5f-9b52-4aba3ccf6ed7)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Wykres Wahania Nastroju:**
+   - Recharts został użyty do stworzenia wykresu liniowego przedstawiającego wahania nastroju użytkownika w czasie.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://github.com/Dworianek/mood-app/assets/45004601/0c771adf-2936-4d97-8414-d9a61d0dd9c7)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+4. **Tabela Podsumowania Emocji:**
+   - Liczy ilość wystąpień każdej emocji (wspaniale, dobrze, średnio, źle, tragicznie) na podstawie zebranych danych.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![image](https://github.com/Dworianek/mood-app/assets/45004601/61603b52-250f-4bc6-ae49-01dac05411b6)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Technologie
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Aplikacja została stworzona przy użyciu następujących technologii:
 
-## Learn More
+- **Framework JavaScript:** React
+- **Biblioteka do Stylingu:** Bootstrap
+- **Biblioteka do Tworzenia Wykresów:** Recharts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Instrukcje Użytkowania
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Sklonuj repozytorium na swój lokalny komputer.
+2. Otwórz terminal w katalogu projektu i wykonaj polecenie `npm install` w celu zainstalowania zależności.
+3. Uruchom aplikację za pomocą polecenia `npm start`.
+4. Wypełnij formularz codziennie, aby śledzić swoje samopoczucie.
+5. Sprawdź wykres wahania nastroju oraz tabelę podsumowania emocji, aby uzyskać lepsze zrozumienie swoich uczuć.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Autor
+Adrian Dworak
